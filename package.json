@@ -4,7 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "tsc && node dist/main.js"
+    "build": "tsc",
+    "start": "node dist/src/main.js",
+    "update-commands": "node dist/src/main.js --deploy-commands",
+    "dev": "tsc -w",
+    "dev:start": "node dist/src/main.js",
+    "dev:test": "jest -i",
+    "setup": "npm run build && npm run update-commands",
+    "docker:setup": "npm run build",
+    "docker:build": "docker build -t uptime-bot ."
   },
   "volta": {
     "node": "20.17.0"
