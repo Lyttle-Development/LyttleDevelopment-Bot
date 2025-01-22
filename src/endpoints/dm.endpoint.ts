@@ -2,11 +2,15 @@ import type { Request, Response } from 'express';
 
 // Webhook endpoint for dynamic actions
 import {app, bot} from '../main';
+import {authorised, unAuthorised} from '../utils/authorised';
 
 export function dmEndpoint() {
     app.post('/dm/:userId', async (req: Request, res: Response) => {
         const userId = req.params.userId;
         const content = req.body.content;
+        const token = req.headers.authorization as string;
+
+        if (!authorised(token)) return unAuthorised(res);
 
         try {
             const user = await bot.users.fetch(userId); // Fetch the user by their ID
