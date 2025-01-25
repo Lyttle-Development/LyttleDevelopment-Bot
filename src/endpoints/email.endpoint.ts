@@ -7,19 +7,35 @@ import * as process from 'node:process';
 
 const uptimePushStatuses: Record<string, string> = {
     "UPTIME_STATUS_SE004NLAM_STORAGE": process.env.UPTIME_STATUS_SE004NLAM_STORAGE,
-    "UPTIME_STATUS_SE006NLAM_STORAGE": process.env.UPTIME_STATUS_SE006NLAM_STORAGE
+    "UPTIME_STATUS_SE004NLAM_CPU": process.env.UPTIME_STATUS_SE004NLAM_CPU,
+    "UPTIME_STATUS_SE004NLAM_MEMORY": process.env.UPTIME_STATUS_SE004NLAM_MEMORY,
+    "UPTIME_STATUS_SE006NLAM_STORAGE": process.env.UPTIME_STATUS_SE006NLAM_STORAGE,
+    "UPTIME_STATUS_SE006NLAM_CPU": process.env.UPTIME_STATUS_SE006NLAM_CPU,
+    "UPTIME_STATUS_SE006NLAM_MEMORY": process.env.UPTIME_STATUS_SE006NLAM_MEMORY
 }
 
 const uptimeStatuses: Record<string, boolean> = {
     [uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE']]: true,
-    [uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE']]: true
+    [uptimePushStatuses['UPTIME_STATUS_SE004NLAM_CPU']]: true,
+    [uptimePushStatuses['UPTIME_STATUS_SE004NLAM_MEMORY']]: true,
+    [uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE']]: true,
+    [uptimePushStatuses['UPTIME_STATUS_SE006NLAM_CPU']]: true,
+    [uptimePushStatuses['UPTIME_STATUS_SE006NLAM_MEMORY']]: true
 };
 
 const emailSubjects: Record<string, string> = {
     'DigitalOcean monitoring triggered: Disk Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
     'DigitalOcean monitoring resolved: Disk Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
+    'DigitalOcean monitoring triggered: CPU is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_CPU'],
+    'DigitalOcean monitoring resolved: CPU is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_CPU'],
+    'DigitalOcean monitoring triggered: Memory Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_MEMORY'],
+    'DigitalOcean monitoring resolved: Memory Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_MEMORY'],
     'DigitalOcean monitoring triggered: Disk Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
     'DigitalOcean monitoring resolved: Disk Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
+    'DigitalOcean monitoring triggered: CPU is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_CPU'],
+    'DigitalOcean monitoring resolved: CPU is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_CPU'],
+    'DigitalOcean monitoring triggered: Memory Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_MEMORY'],
+    'DigitalOcean monitoring resolved: Memory Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_MEMORY'],
 }
 
 export function emailEndpoint() {
