@@ -29,11 +29,10 @@ export function emailEndpoint() {
         for (const [id, status] of Object.entries(uptimeStatuses)) {
             console.log(`Pushing status for ${id}: ${status}`);
             void fetch(`${process.env.UPTIME_URL}/api/push/${id}?status=${status ? "up" : 'down'}&msg=${status ? 'OK' : 'NOK'}`, {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({status})
+                }
             })
         }
         console.log('Pushed latest status to uptime service.');
