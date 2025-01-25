@@ -16,10 +16,10 @@ const uptimeStatuses: Record<string, boolean> = {
 };
 
 const emailSubjects: Record<string, string> = {
-    'DigitalOcean monitoring triggered: Disk Utilization is running high - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
-    'DigitalOcean monitoring resolved: Disk Utilization is running high - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
-    'DigitalOcean monitoring triggered: Disk Utilization is running high - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
-    'DigitalOcean monitoring resolved: Disk Utilization is running high - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
+    'DigitalOcean monitoring triggered: Disk Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
+    'DigitalOcean monitoring resolved: Disk Utilization is running high  - db-postgresql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE004NLAM_STORAGE'],
+    'DigitalOcean monitoring triggered: Disk Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
+    'DigitalOcean monitoring resolved: Disk Utilization is running high  - db-mysql-ams3-se0001': uptimePushStatuses['UPTIME_STATUS_SE006NLAM_STORAGE'],
 }
 
 export function emailEndpoint() {
