@@ -55,6 +55,7 @@ export function emailEndpoint() {
             // Stringify the body
             const body = JSON.stringify(req.body, null, 2);
             console.log(`Received email: ${body}`);
+            res.status(201).send('Email received.');
         } catch (error) {
             console.error('Error sending DM:', error);
             res.status(500).send('An error occurred while sending the DM.');
