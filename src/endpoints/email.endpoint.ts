@@ -71,7 +71,9 @@ export function emailEndpoint() {
             const id = selectedSubject[1];
             const status = selectedSubject[0]; // true for resolved, false for triggered
 
-            if (id && status !== null && typeof id === 'string' && typeof status === 'boolean') {
+            console.log(`Email subject: ${subject}, selected subject: ${selectedSubjectKey}, id: ${id}, status: ${status}`);
+
+            if (id) {
                 uptimeStatuses[id] = status;
             }
 
