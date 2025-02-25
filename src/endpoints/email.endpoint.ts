@@ -61,11 +61,17 @@ export function emailEndpoint() {
             // Get its data first item in the array and its subject
             const data = req.body.data[0];
             const subject = data.subject;
-            const selectedSubject = Object.keys(emailSubjects).find((key) => key.includes(subject) || subject.includes(key)) ? emailSubjects[subject] : false;
+            const selectedSubjectKey = Object.keys(emailSubjects).find((key) => key.includes(subject) || subject.includes(key)) ?? null;
+            if (!selectedSubjectKey) {
+                console.error('No subject found for email:', subject);
+                res.status(400).send('No subject found for email.');
+                return;
+            }
+            const selectedSubject = emailSubjects[selectedSubjectKey] ?? [null, null];
             const id = selectedSubject[1];
             const status = selectedSubject[0]; // true for resolved, false for triggered
 
-            if (id) {
+            if (id && status !== null && typeof id === 'string' && typeof status === 'boolean') {
                 uptimeStatuses[id] = status;
             }
 
