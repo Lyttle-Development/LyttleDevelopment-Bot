@@ -1,5 +1,5 @@
 {
-  "name": "uptime-bot",
+  "name": "lyttledevelopment-bot",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -12,7 +12,7 @@
     "dev:test": "jest -i",
     "setup": "npm run build && npm run update-commands",
     "docker:setup": "npm run build",
-    "docker:build": "docker build -t uptime-bot ."
+    "docker:build": "docker build -t lyttledevelopment-bot ."
   },
   "volta": {
     "node": "20.17.0"
