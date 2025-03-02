@@ -1,12 +1,13 @@
-import { Client, GatewayIntentBits } from 'discord.js';
+import {Client, GatewayIntentBits} from 'discord.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import {initEndpoints} from './endpoints';
+import {initializeQueue} from './utils/queue';
 
 dotenv.config();
 
-export const bot = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent] });
+export const bot = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent]});
 export const app = express();
 export const port = 3000;
 
@@ -19,7 +20,8 @@ bot.once('ready', () => {
 
 bot.login(process.env.DISCORD_TOKEN);
 
-initEndpoints()
+initEndpoints();
+initializeQueue();
 
 // Start the express server
 app.listen(port, () => {
