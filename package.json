@@ -12,26 +12,27 @@
     "dev:test": "jest -i",
     "setup": "npm run build && npm run update-commands",
     "docker:setup": "npm run build",
-    "docker:build": "docker build -t lyttledevelopment-bot ."
+    "docker:build": "docker build -t lyttledevelopment-bot .",
+    "update": "npm update --save && npx npm-check-updates -u && npm install"
   },
   "volta": {
-    "node": "20.17.0"
+    "node": "22.19.0"
   },
   "engines": {
-    "node": "20.17.0"
+    "node": "22.19.0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "discord.js": "^14.17.3",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "typescript": "^5.7.3"
+    "body-parser": "^2.2.0",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.5",
-    "@types/express": "^5.0.0"
+    "@types/body-parser": "^1.19.6",
+    "@types/express": "^5.0.3"
   }
 }
